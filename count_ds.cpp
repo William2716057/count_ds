@@ -2,18 +2,23 @@
 #include <string>
 #include <cctype>
 
+int count_char(const std::string& text, char target) {
+	int count = 0;
+	for (char c : text) {
+		if (c == target) {
+			++count;
+		}
+	}
+	return count;
+}
+
+
 int main()
 {
-    std::string text = "Hdafgsdfgsdfgsdfgsdf";
-    int count = 0;
+	std::string text;
+	std::cout << "Enter text: ";
+	std::getline(std::cin, text);
 
-    for (char c : text) {
-        if (std::tolower(static_cast<unsigned char>(c)) == 'd') {
-            count++;
-        }
-    }
-
-    std::cout << count << " d found in string" << std::endl;
-
-    return 0;
+	int count = count_char(text, 'd');
+	std::cout << "Found " << count << "occurrances of d";
 }
